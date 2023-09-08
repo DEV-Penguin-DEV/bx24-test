@@ -65,9 +65,7 @@ async function addTask() {
         RESPONSIBLE_ID: 1,
       },
     },
-    (res) => {
-      console.log(res.answer.result);
-    }
+    () => {}
   );
   this.$refs.taskName.value = "";
   const promisArray = await getTasks();
@@ -80,9 +78,7 @@ async function removeTask() {
   const result = await BX24API.callMethod(
     "tasks.task.delete",
     { taskId: taskId },
-    function (res) {
-      console.log(res.answer.result);
-    }
+    function () {}
   );
   this.$refs.taskId.value = "";
   const promisArray = await getTasks();
@@ -163,7 +159,7 @@ async function getTasks() {
   box-sizing: border-box;
 
   width: 100%;
-  max-width: 100px;
+  display: block;
   background-color: rgb(86, 193, 229);
   transition: 0.5s;
 
